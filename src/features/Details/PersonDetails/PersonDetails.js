@@ -12,7 +12,7 @@ import {
 } from "../../Slices/peopleSlice";
 import { useEffect } from "react";
 import PersonDetailsCard from "./PersonDetailsCard/PersonDetailsCard";
-import {Container} from "../../../common/Container";
+import { Container } from "../../../common/Container";
 import IconSpiner from "../../../common/IconSpinner";
 import ErrorPage from "../../../common/ErrorPage";
 import Cast from "./MoviesForPerson/Cast";
@@ -29,22 +29,27 @@ const PersonDetails = () => {
   const cast = useSelector(selectCast);
   const crew = useSelector(selectCrew);
 
-    useEffect(() => {
-      dispatch(updatePersonId(id));
-      dispatch(fetchPersonDetails(id));
-      dispatch(fetchMoviesForPerson(id));
-    }, [id, dispatch]);
+  useEffect(() => {
+    dispatch(updatePersonId(id));
+    dispatch(fetchPersonDetails(id));
+    dispatch(fetchMoviesForPerson(id));
+  }, [id, dispatch]);
 
-  return (
-    <Container>
-      {isLoading ? (
-        <>
-          <IconSpiner />
-        </>
-      ) : error ? (
+  if (isLoading) {
+    return (
+      <Container>
+        <IconSpiner />
+      </Container>
+    );
+  } else if (error) {
+    return (
+      <Container>
         <ErrorPage />
-      ) : (
-        <>
+      </Container>
+    );
+  } else {
+    return (
+      <Container>
         <PersonDetailsCard
           profile_path={selectedPerson.profile_path}
           name={selectedPerson.name}
@@ -52,16 +57,11 @@ const PersonDetails = () => {
           place_of_birth={selectedPerson.place_of_birth}
           biography={selectedPerson.biography}
         />
-          {cast && cast.length > 0 && (
-            <Cast />
-          )}
-          {crew && crew.length > 0 && (
-            <Crew />
-          )}
-      </>
-      )}
-    </Container>
-  );
+        {cast && cast.length > 0 && <Cast />}
+        {crew && crew.length > 0 && <Crew />}
+      </Container>
+    );
+  }
 };
 
 export default PersonDetails;

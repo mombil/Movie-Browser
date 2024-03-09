@@ -42,43 +42,47 @@ const PeopleList = () => {
     dispatch(fetchPeople());
   }, [dispatch, searchValue, page, totalPages]);
 
-  return (
-    <>
+  if (isLoading) {
+    return (
       <Container>
-        {error ? (
-          <ErrorPage />
-        ) : isLoading ? (
-          <>
-            <PeopleHeader>
-              {searchValue ? `Search results for "${query}"` : "Popular people"}
-            </PeopleHeader>
-            <IconSpiner />
-          </>
-        ) : people.total_results ? (
-          <>
-            <PeopleHeader>
-              {searchValue
-                ? `Search results for "${query}" (${people.total_results})`
-                : "Popular people"}
-            </PeopleHeader>
-            <TilesWrapper>
-              {people.results?.map(person => (
-                <PeopleTile key={person.id}>
-                  <PeopleCard {...person} />
-                </PeopleTile>
-              ))}
-            </TilesWrapper>
-            <Pagination />
-          </>
-        ) : (
-          <>
-            <PeopleHeader>{`Sorry, there are no results for "${query}"`}</PeopleHeader>
-            <NoResults />
-          </>
-        )}
+        <PeopleHeader>
+          {searchValue ? `Search results for "${query}"` : "Popular people"}
+        </PeopleHeader>
+        <IconSpiner />
       </Container>
-    </>
-  );
+    );
+  } else if (error) {
+    return (
+      <Container>
+        <ErrorPage />
+      </Container>
+    );
+  } else if (people.total_results) {
+    return (
+      <Container>
+        <PeopleHeader>
+          {searchValue
+            ? `Search results for "${query}" (${people.total_results})`
+            : "Popular people"}
+        </PeopleHeader>
+        <TilesWrapper>
+          {people.results?.map(person => (
+            <PeopleTile key={person.id}>
+              <PeopleCard {...person} />
+            </PeopleTile>
+          ))}
+        </TilesWrapper>
+        <Pagination />
+      </Container>
+    );
+  } else {
+    return (
+      <Container>
+        <PeopleHeader>{`Sorry, there are no results for "${query}"`}</PeopleHeader>
+        <NoResults />
+      </Container>
+    );
+  }
 };
 
 export default PeopleList;

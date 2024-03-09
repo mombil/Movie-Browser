@@ -43,19 +43,50 @@ const MovieList = () => {
     dispatch(fetchMovies());
   }, [dispatch, page, searchValue, totalPages]);
 
+  if (isLoading) {
+    return (
+      <MovieContainer>
+        <MovieHeader>
+          {searchValue ? `Search results for "${query}"` : "Popular movies"}
+        </MovieHeader>
+        <IconSpiner />
+      </MovieContainer>
+    );
+  } else if (error) {
+    return (
+      <MovieContainer>
+        <ErrorPage />
+      </MovieContainer>
+    );
+  } else if (movies.total_results) {
+    <MovieContainer>
+      <MovieHeader>
+        {searchValue
+          ? `Search results for "${query}" (${movies.total_results})`
+          : "Popular movies"}
+      </MovieHeader>
+      <TilesWrapper>
+        {movies.results?.map(movie => (
+          <MovieTile key={movie.id}>
+            <MovieCard {...movie} />
+          </MovieTile>
+        ))}
+      </TilesWrapper>
+      <Pagination />
+    </MovieContainer>;
+  } else {
+    return (
+      <MovieContainer>
+        <MovieHeader>{`Sorry, there are no results for "${query}"`}</MovieHeader>
+        <NoResults />
+      </MovieContainer>
+    );
+  }
+
   return (
     <>
       <MovieContainer>
-        {isLoading ? (
-          <>
-            <MovieHeader>
-              {searchValue ? `Search results for "${query}"` : "Popular movies"}
-            </MovieHeader>
-            <IconSpiner />
-          </>
-        ) : error ? (
-          <ErrorPage />
-        ) : movies.total_results ? (
+        {movies.total_results ? (
           <>
             <MovieHeader>
               {searchValue

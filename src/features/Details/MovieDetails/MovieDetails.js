@@ -38,46 +38,44 @@ const MovieDetails = () => {
 
   if (!selectedMovie) {
     return <p>Movie not found</p>;
-  }
-
-  return (
-    <>
-      {isLoading ? (
-        <>
-          <IconSpiner />
-        </>
-      ) : error ? (
+  } else if (isLoading) {
+    return (
+      <Container>
+        <IconSpiner />
+      </Container>
+    );
+  } else if (error) {
+    return (
+      <Container>
         <ErrorPage />
-      ) : (
-        <>
-          <Banner
-            backdrop_path={selectedMovie.backdrop_path}
+      </Container>
+    );
+  } else {
+    return (
+      <>
+        <Banner
+          backdrop_path={selectedMovie.backdrop_path}
+          title={selectedMovie.title}
+          vote_average={selectedMovie.vote_average}
+          vote_count={selectedMovie.vote_count}
+        />
+        <Container>
+          <MovieDetailsCard
+            poster_path={selectedMovie.poster_path}
             title={selectedMovie.title}
+            release_date={selectedMovie.release_date}
+            production_countries={selectedMovie.production_countries}
+            genre_ids={selectedMovie.genres}
             vote_average={selectedMovie.vote_average}
             vote_count={selectedMovie.vote_count}
+            overview={selectedMovie.overview}
           />
-          <Container>
-            <MovieDetailsCard
-              poster_path={selectedMovie.poster_path}
-              title={selectedMovie.title}
-              release_date={selectedMovie.release_date}
-              production_countries={selectedMovie.production_countries}
-              genre_ids={selectedMovie.genres}
-              vote_average={selectedMovie.vote_average}
-              vote_count={selectedMovie.vote_count}
-              overview={selectedMovie.overview}
-            />
-            {cast && cast.length > 0 && (
-              <Cast />
-            )}
-            {crew && crew.length > 0 && (
-              <Crew />
-            )}
-          </Container>
-        </>
-      )}
-    </>
-  );
+          {cast && cast.length > 0 && <Cast />}
+          {crew && crew.length > 0 && <Crew />}
+        </Container>
+      </>
+    );
+  }
 };
 
 export default MovieDetails;
