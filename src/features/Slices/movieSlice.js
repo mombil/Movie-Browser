@@ -34,7 +34,7 @@ const movieSlice = createSlice({
     changeSearchMoviesValue: (state, { payload: searchMoviesValue }) => {
       state.isLoading = true;
       state.searchMoviesValue = searchMoviesValue;
-      state.moviePage = 1
+      state.moviePage = 1;
       state.error = false;
     },
     fetchMovieDetails: state => {
@@ -46,6 +46,7 @@ const movieSlice = createSlice({
     },
     fetchMovieDetailsError: (state, { payload: error }) => {
       state.error = true;
+      state.isLoading = false;
       console.error(error);
     },
     fetchPeopleForMovie: (state, { payload: peopleForMovie }) => {
@@ -70,9 +71,9 @@ const movieSlice = createSlice({
     goToFirstMoviePage: state => {
       state.moviePage = 1;
     },
-    updateMoviePage: (state, {payload: page}) => {
-      state.moviePage = page
-    }
+    updateMoviePage: (state, { payload: page }) => {
+      state.moviePage = page;
+    },
   },
 });
 

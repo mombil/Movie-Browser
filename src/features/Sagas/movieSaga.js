@@ -27,12 +27,7 @@ export function* fetchMoviesHandler() {
       const movie = yield call(getMovies, page);
       yield put(fetchMoviesSucces(movie));
     } else {
-      const movie = yield call(
-        getSearchedMovies,
-        searchValue,
-        page,
-      
-      );
+      const movie = yield call(getSearchedMovies, searchValue, page);
       yield put(fetchMoviesSucces(movie));
     }
   } catch (error) {
