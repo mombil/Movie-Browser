@@ -5,17 +5,16 @@ import {
   NavList,
   StyledListItem,
   StyledLogo,
-  Logo,
+  LogoIcon,
   LogoName,
 } from "./styled";
-import logo from "../../images/logo.svg";
 import SearchBar from "./SearchBar";
 
 const Navigation = () => (
   <Wrapper>
     <TitleWrapper>
       <StyledLogo to="/movie">
-        <Logo src={logo} alt="Movies Browser" />
+        <LogoIcon />
         <LogoName>Movie Browser</LogoName>
       </StyledLogo>
       <NavList>

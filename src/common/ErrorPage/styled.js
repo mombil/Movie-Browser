@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { Header } from "../Header";
+import { ReactComponent as DangerSvg } from "../../images/danger.svg";
 
 export const ErrorContainer = styled.div`
   display: grid;
@@ -11,7 +12,7 @@ export const ErrorContainer = styled.div`
   }
 `;
 
-export const DangerImg = styled.img`
+export const DangerIcon = styled(DangerSvg)`
   width: 120px;
   height: 120px;
   margin: auto;
@@ -41,7 +42,7 @@ export const StyledParagraph = styled.p`
 `;
 
 export const StyledLink = styled(NavLink)`
-display: flex;
+  display: flex;
   width: 181px;
   height: 51px;
   border-radius: 5px;
@@ -50,7 +51,7 @@ display: flex;
   margin: 10px auto 0;
   justify-content: center;
   align-items: center;
-  
+
   color: ${({ theme }) => theme.colors.primary};
   text-decoration: none;
   font-weight: 700;

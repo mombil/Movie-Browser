@@ -1,9 +1,8 @@
-import { Search, SearchWrapper, SearchImg } from "./styled";
+import { Search, SearchWrapper, SearchIcon } from "./styled";
 import {
   useHistory,
   useLocation,
 } from "react-router-dom/cjs/react-router-dom.min";
-import search from "./../../../images/search.svg";
 import {
   useReplaceQueryParameter,
   useQueryParameter,
@@ -38,7 +37,7 @@ const SearchBar = () => {
 
   return (
     <SearchWrapper>
-      <SearchImg src={search} alt="" />
+      <SearchIcon />
       <Search
         placeholder={
           location.pathname === "/people" ||

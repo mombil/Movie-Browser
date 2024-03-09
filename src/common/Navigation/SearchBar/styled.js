@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as SearchSvg } from "../../../images/search.svg";
 
 export const SearchWrapper = styled.div`
   padding: 0px 16px 0px 24px;
@@ -20,7 +21,7 @@ export const SearchWrapper = styled.div`
   }
 `;
 
-export const SearchImg = styled.img`
+export const SearchIcon = styled(SearchSvg)`
   height: 24px;
   width: 24px;
   margin-right: 8px;

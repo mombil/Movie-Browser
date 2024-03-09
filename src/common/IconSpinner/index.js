@@ -1,9 +1,9 @@
-import { IconSpinerImg, IconWraper } from "./styled";
-import iconSpiner from "./../../images/icon-spinner.svg"
+import { StyledIconSpiner, IconWraper } from "./styled";
+
 const IconSpiner = () => (
   <IconWraper>
-    <IconSpinerImg src={iconSpiner} alt="loading" />
+    <StyledIconSpiner />
   </IconWraper>
 );
 
-export default IconSpiner
+export default IconSpiner;

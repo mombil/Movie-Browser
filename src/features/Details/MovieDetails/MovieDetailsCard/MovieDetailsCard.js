@@ -13,11 +13,10 @@ import {
   AdditionalData,
   LabelAdditionalData,
   Label,
-  StarImg,
+  StarIcon,
   SmallRating,
   MovieTiLeConstainer,
 } from "./styled";
-import star from "../../../../images/starVector.svg";
 import { IMG_URL_SMALL } from "../../../getAPI/config";
 import GenreList from "../../../Genras";
 import noMovieImage from "../../../../images/noMovieImage.svg";
@@ -33,21 +32,22 @@ const MovieDetailsCard = ({
   vote_count,
   overview,
 }) => {
-
-  const resize = useResize()
+  const resize = useResize();
 
   const countryNames = production_countries
     ?.map(country => country.name)
     .join(", ");
 
-    const date = new Date(release_date);
-    const releaseDate = date.toLocaleDateString("en-GB", {
+  const date = new Date(release_date);
+  const releaseDate = date
+    .toLocaleDateString("en-GB", {
       day: "2-digit",
       month: "2-digit",
       year: "numeric",
-    }).replace(/\//g, '.');
-  
-    const year = date.getFullYear() ? date.getFullYear() : "-";
+    })
+    .replace(/\//g, ".");
+
+  const year = date.getFullYear() ? date.getFullYear() : "-";
 
   return (
     <>
@@ -79,7 +79,7 @@ const MovieDetailsCard = ({
               </TagsWrapper>
               {vote_count ? (
                 <RatingsWrapper>
-                  <StarImg src={star} />
+                  <StarIcon />
                   <Rating>{vote_average?.toFixed(1).replace(".", ",")}</Rating>
                   <SmallRating>/10</SmallRating>
                   <Votes>{vote_count} votes</Votes>
@@ -117,7 +117,7 @@ const MovieDetailsCard = ({
               </TagsWrapper>
               {vote_count ? (
                 <RatingsWrapper>
-                  <StarImg src={star} />
+                  <StarIcon />
                   <Rating>{vote_average?.toFixed(1)}</Rating>
                   <Votes>{vote_count} votes</Votes>
                 </RatingsWrapper>

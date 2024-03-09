@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as StarSvg } from "../../../../images/starVector.svg";
 
 export const Background = styled.section`
   position: relative;
@@ -104,7 +105,7 @@ export const RatingSection = styled.div`
   }
 `;
 
-export const StarImg = styled.img`
+export const StarIcon = styled(StarSvg)`
   width: 40px;
   height: 40px;
 

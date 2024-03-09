@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import { ReactComponent as StarSvg } from "../../../images/starVector.svg";
 
 export const StyledCard = styled(NavLink)`
   display: grid;
@@ -96,7 +97,7 @@ export const TagsWrapper = styled.div`
   gap: 8px;
 `;
 
-export const Star = styled.img`
+export const StarIcon = styled(StarSvg)`
   width: 24px;
   height: 24px;
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
@@ -138,6 +139,6 @@ export const RateWrapper = styled.div`
   margin-top: 8px;
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     flex-grow: 0;
-    margin-top: 8px
+    margin-top: 8px;
   }
 `;

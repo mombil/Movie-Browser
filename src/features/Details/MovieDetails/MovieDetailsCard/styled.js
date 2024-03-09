@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as StarSvg } from "../../../../images/starVector.svg";
 
 export const MovieTile = styled.div`
   background: ${({ theme }) => theme.colors.tile.primary};
@@ -146,7 +147,7 @@ export const RatingsWrapper = styled.div`
   }
 `;
 
-export const StarImg = styled.img`
+export const StarIcon = styled(StarSvg)`
   width: 24px;
   height: 24px;
 

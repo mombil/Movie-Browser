@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { ReactComponent as LogoSvg } from "../../images/logo.svg";
 
 export const Wrapper = styled.nav`
   max-width: 100%;
@@ -43,7 +44,7 @@ export const TitleWrapper = styled.div`
   }
 `;
 
-export const Logo = styled.img`
+export const LogoIcon = styled(LogoSvg)`
   width: 40px;
   height: 40px;
   margin-right: 12px;
@@ -77,7 +78,6 @@ export const LogoName = styled.p`
   letter-spacing: -1.5px;
   transition: 0.2s;
 
-  
   &:hover {
     color: ${({ theme }) => theme.colors.header.secondary};
   }
@@ -101,7 +101,6 @@ export const NavList = styled.ul`
   padding-left: 0;
   margin: 0;
 `;
-
 
 export const StyledListItem = styled.li``;
 

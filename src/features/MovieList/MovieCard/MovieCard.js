@@ -9,11 +9,10 @@ import {
   RateWrapper,
   TagsWrapper,
   DataWrapper,
-  Star,
+  StarIcon,
 } from "./styled";
 import { POSTER_URL_SMALL } from "../../getAPI/config";
 import GenreList from "../../Genras";
-import star from "../../../images/starVector.svg";
 import noMovieImage from "../../../images/noMovieImage.svg";
 
 const MovieCard = ({
@@ -55,7 +54,7 @@ const MovieCard = ({
           <RateWrapper>
             {vote_count ? (
               <>
-                <Star src={star} alt="" />
+                <StarIcon />
                 <Rating>{vote_average?.toFixed(1).replace(".", ",")}</Rating>
                 <Votes>{vote_count} votes</Votes>
               </>
