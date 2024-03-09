@@ -15,7 +15,7 @@ It enables browsing movies, checking people related to movies and movies realted
 - [Małgorzata Gajlusz](https://github.com/gosiagajlusz)
 
 
-[demo](https://mateuszbryczek.github.io/Movie-Browser/)
+[demo](https://mombil.github.io/Movie-Browser/)
 
 ![image](https://github.com/MateuszBryczek/Movie-Browser/assets/105000058/bbb5a074-baed-41ee-bd5d-752c0f49736a)
 
