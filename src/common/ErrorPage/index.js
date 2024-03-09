@@ -1,3 +1,4 @@
+import { movie } from "../../features/Routes";
 import {
   ErrorHeader,
   ErrorContainer,
@@ -13,7 +14,7 @@ const ErrorPage = () => (
     <StyledParagraph>
       Please check your network connection and try again
     </StyledParagraph>
-    <StyledLink to="/movielist">Back to home page</StyledLink>
+    <StyledLink to={movie}>Back to home page</StyledLink>
   </ErrorContainer>
 );
 

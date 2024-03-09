@@ -6,6 +6,7 @@ import PeopleList from "./features/PeopleList/PeopleList";
 import Navigation from "./common/Navigation";
 import MovieDetails from "./features/Details/MovieDetails/MovieDetails";
 import PersonDetails from "./features/Details/PersonDetails/PersonDetails"
+import { movie, movieDetail, people, peopleDetail } from "./features/Routes";
 
 export const App = () => {
   return (
@@ -15,16 +16,16 @@ export const App = () => {
         <HashRouter>
           <Navigation/>
           <Switch>
-            <Route path="/people/details/:id" component={PersonDetails} />
-            <Route path="/people">
+            <Route path={peopleDetail} component={PersonDetails} />
+            <Route path={people}>
               <PeopleList />
             </Route>
-            <Route path="/movie/details/:id" component={MovieDetails} />
-            <Route path="/movie">
+            <Route path={movieDetail} component={MovieDetails} />
+            <Route path={movie}>
               <MovieList />
             </Route>
             <Route path="/">
-              <Redirect to="/movie" />
+              <Redirect to={movie} />
               <MovieList />
             </Route>
           </Switch>

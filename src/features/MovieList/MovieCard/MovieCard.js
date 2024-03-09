@@ -14,6 +14,7 @@ import {
 import { POSTER_URL_SMALL } from "../../getAPI/config";
 import GenreList from "../../Genras";
 import noMovieImage from "../../../images/noMovieImage.svg";
+import { movie } from "../../Routes";
 
 const MovieCard = ({
   id,
@@ -31,7 +32,7 @@ const MovieCard = ({
 
   return (
     <>
-      <StyledCard to={`/movie/details/${id}`}>
+      <StyledCard to={`${movie}/${id}`}>
         <Poster
           src={poster_path ? POSTER_URL_SMALL + poster_path : noMovieImage}
         ></Poster>

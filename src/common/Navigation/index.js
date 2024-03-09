@@ -9,20 +9,21 @@ import {
   LogoName,
 } from "./styled";
 import SearchBar from "./SearchBar";
+import { movie, people } from "../../features/Routes";
 
 const Navigation = () => (
   <Wrapper>
     <TitleWrapper>
-      <StyledLogo to="/movie">
+      <StyledLogo to={movie}>
         <LogoIcon />
         <LogoName>Movie Browser</LogoName>
       </StyledLogo>
       <NavList>
         <StyledListItem>
-          <StyledNavLink to="/movie">MOVIES</StyledNavLink>
+          <StyledNavLink to={movie}>MOVIES</StyledNavLink>
         </StyledListItem>
         <StyledListItem>
-          <StyledNavLink to="/people">PEOPLE</StyledNavLink>
+          <StyledNavLink to={people}>PEOPLE</StyledNavLink>
         </StyledListItem>
       </NavList>
     </TitleWrapper>
